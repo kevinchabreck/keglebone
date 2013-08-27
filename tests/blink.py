@@ -1,6 +1,6 @@
-# a test script to make an LED blink on the Beaglebone's GPIO30 pin
-
 import time
+
+# a test script to make an LED blink on the Beaglebone's GPIO30 pin
 
 open('/sys/class/gpio/export', 'w').write("30")
 open('/sys/class/gpio/gpio30/direction', 'w').write("out")
