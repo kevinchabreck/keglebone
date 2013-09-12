@@ -47,7 +47,7 @@ while True:
 
 class unit:
 	name = unitName
-	value = sum(trials)/trials.length
+	value = sum(trials)/trials.len
 
 pickle.dump(unit, open(os.getcwd() + '/../config/unit.txt', 'w'))
 
