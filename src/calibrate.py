@@ -36,7 +36,7 @@ while True:
 			print totalPulses
 	except KeyboardInterrupt:
 		print '\npulses counted: {}'.format(totalPulses)
-		if len(totalPulses) > 0:
+		if len(trials) > 0:
 			print 'past runs: {}'.format(trials)
 		valid = raw_input('keep this run? (y/n) ')
 		if valid == 'y':
