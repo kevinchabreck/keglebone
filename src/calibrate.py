@@ -22,6 +22,7 @@ trials = []
 totalPulses = 0
 
 print 'Preparing to gather data. Press ctrl + c when done with each trial'
+print 'ready to gather data'
 
 # begin polling GPIO file for pulses 
 while True:
@@ -32,15 +33,19 @@ while True:
 		if val != last:
 			last = val
 			totalPulses+=1
-			print(totalPulses)
+			print totalPulses
 	except KeyboardInterrupt:
+		print '\npulses counted: {}'.format(totalPulses)
+		if len(totalPulses) > 0:
+			print 'past runs: {}'.format(trials)
 		valid = raw_input('keep this run? (y/n) ')
 		if valid == 'y':
 			print 'adding run to batch'
 			trials.append(totalPulses)
-		proceed = raw_input('run again? (y/n)')
+		proceed = raw_input('run again? (y/n) ')
 		if proceed == 'y':
 			totalPulses = 0
+			print 'ready to gather data'
 		else:
 			open('/sys/class/gpio/unexport', 'w').write("48")
 			break
