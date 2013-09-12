@@ -14,7 +14,10 @@ valuef = open('/sys/class/gpio/gpio48/value', 'r')
 last = valuef.read()
 valuef.close()
 
+# initialize pulse counter
 totalPulses = 0
+
+print "starting script"
 
 # begin polling GPIO file for pulses 
 while True:
@@ -32,4 +35,3 @@ while True:
 		break
 
 #twitter.update_status(status='test')
-#print "starting script"
