@@ -24,14 +24,15 @@ class unit:
 
 # grab unit value of 1 liter (done by calibrate.py)
 try:
-	unit = pickle.load(open(os.getcwd() + '/../config/unit.txt', 'r'))
+	u = pickle.load(open(os.getcwd() + '/../config/unit.txt', 'r'))
 except IOError:
 	print "please run the calibration file, then restart this script"
 	print "(calibration file located at Keglebone/src/calibrate.py)"
 	sys.exit()
 
-
 print "starting script"
+print "unit: " + u.name
+print "value: {}".format(u.value)
 
 # begin polling GPIO file for pulses 
 while True:
