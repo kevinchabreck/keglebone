@@ -8,7 +8,7 @@ import os, pickle
 # unit.txt
 
 print "\nKeglebone Calibration Tool\n"
-unitName = raw_input('enter the name of the unit you wish to measure: ')
+unitName = raw_input('enter the name of the unit you wish to measure (suggested unit: liter): ')
 
 # prepare pin 
 open('/sys/class/gpio/export', 'w').write("48")
@@ -51,10 +51,13 @@ while True:
 			break
 
 class unit:
-	name = unitName
-	value = sum(trials)/len(trials)
+	def __init__(self, name, value):
+		self.name = name
+		self.value = value
 
-pickle.dump(unit, open(os.getcwd() + '/../config/unit.txt', 'w'))
+u = unit(unitName, (sum(trials)/len(trials)))
+
+pickle.dump(u, open(os.getcwd() + '/../config/unit.txt', 'w'))
 
 unit2 = pickle.load(open(os.getcwd() + '/../config/unit.txt', 'r'))
 print 'unit: ' + unit2.name

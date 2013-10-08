@@ -1,4 +1,4 @@
-import sys, os
+import sys, os, pickle
 import TwitterAuth
 from twython import Twython
 
@@ -17,6 +17,20 @@ valuef.close()
 # initialize pulse counter
 totalPulses = 0
 
+# define unit class
+class unit:
+	name = ""
+	value = 0
+
+# grab unit value of 1 liter (done by calibrate.py)
+try:
+	unit = pickle.load(open(os.getcwd() + '/../config/unit.txt', 'r'))
+except IOError:
+	print "please run the calibration file, then restart this script"
+	print "(calibration file located at Keglebone/src/calibrate.py)"
+	sys.exit()
+
+
 print "starting script"
 
 # begin polling GPIO file for pulses 
@@ -28,7 +42,7 @@ while True:
 		if val != last:
 			last = val
 			totalPulses+=1
-			print(totalPulses)
+			#print(totalPulses)
 	except KeyboardInterrupt:
 		# upon keyboard interrupt, unexport GPIO pin 48
 		open('/sys/class/gpio/unexport', 'w').write("48")
