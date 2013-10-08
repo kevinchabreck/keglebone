@@ -1,4 +1,4 @@
-import sys, os, pickle, thread
+import sys, os, pickle, thread, datetime
 import TwitterAuth
 from twython import Twython
 
@@ -46,7 +46,8 @@ while True:
 			totalPulses+=1
 			if totalPulses % u.value == 0:
 				n = totalPulses // u.value
-				twitter.update_status(status='just measured {} {}s'.format(n, u.name))
+				ts = datetime.datetime.now().strftime("%I:%M%p - %m/%d/%Y")
+				twitter.update_status(status='just measured {} {}s at {}'.format(n, u.name, ts))
 			print(totalPulses)
 	except KeyboardInterrupt:
 		# upon keyboard interrupt, unexport GPIO pin 48
