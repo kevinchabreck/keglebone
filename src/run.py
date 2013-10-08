@@ -33,6 +33,7 @@ except IOError:
 print "starting script"
 print "unit: " + u.name
 print "value: {}".format(u.value)
+print "ready to collect data!"
 
 # begin polling GPIO file for pulses 
 while True:
