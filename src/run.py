@@ -2,6 +2,8 @@ import sys, os, pickle, thread, datetime
 import TwitterAuth
 from twython import Twython
 
+# run.py - run this when you are ready to begin gathering data from the keg
+
 # fetch a Twitter object authorized to an account 
 twitter = TwitterAuth.getTwitter()
 
