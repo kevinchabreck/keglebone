@@ -12,7 +12,7 @@ Authored by Kevin Chabreck and Kyle Bishop.
 The first thing you'll want to do is install the Keglebone service. 
 
 ```
-git clone git@github.com:RallySoftware/redpill.git
+git clone git@github.com:kevinchabreck/Keglebone.git
 ```
 
 Keglebone requires [pip](https://github.com/pypa/pip) and [virtualenv](https://pypi.python.org/pypi/virtualenv) to run. Directions for installing pip can be found [here](http://www.pip-installer.org/en/latest/installing.html#using-package-managers), and directions for installing virtualenv can be found [here](https://pypi.python.org/pypi/virtualenv).
