@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 import sys, os, pickle, thread, datetime
 import TwitterAuth
 from twython import Twython
