@@ -11,7 +11,7 @@ twitter = TwitterAuth.getTwitter()
 # set up mongo store
 client = pymongo.MongoClient('mongodb://localhost:27017/')
 d = datetime.datetime.now().strftime("%m_%d")
-collection = client.kegdb[d]
+collection = client.test[d]
 
 #collection.insert(commit)
 
@@ -65,6 +65,5 @@ while True:
 	except KeyboardInterrupt:
 		# upon keyboard interrupt, unexport GPIO pin 48
 		open('/sys/class/gpio/unexport', 'w').write("48")
+		print('\ngoodbye\n')
 		break
-
-#twitter.update_status(status='test')
